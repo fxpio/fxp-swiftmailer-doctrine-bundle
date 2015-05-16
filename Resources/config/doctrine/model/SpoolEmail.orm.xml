@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                  http://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+
+    <mapped-superclass name="Sonatra\Bundle\SwiftmailerDoctrineBundle\Model\SpoolEmail">
+
+        <field name="message" column="message" type="text" nullable="false"/>
+
+        <field name="createdAt" column="created_at" type="datetime" nullable="false"/>
+
+        <field name="updatedAt" column="updated_at" type="datetime" nullable="false"/>
+
+        <field name="status" column="status" type="integer" nullable="false"/>
+
+        <field name="statusMessage" column="status_message" type="text" nullable="true"/>
+
+    </mapped-superclass>
+
+</doctrine-mapping>
