@@ -60,29 +60,41 @@ class SendEmailCommandOverride extends SendEmailCommand
             $transport = $mailer->getTransport();
 
             if ($transport instanceof \Swift_Transport_SpoolTransport) {
-                $spool = $transport->getSpool();
-
-                if ($spool instanceof \Swift_ConfigurableSpool) {
-                    $spool->setMessageLimit($input->getOption('message-limit'));
-                    $spool->setTimeLimit($input->getOption('time-limit'));
-                }
-
-                if ($spool instanceof DoctrineOrmSpool) {
-                    if (null !== $input->getOption('recover-timeout')) {
-                        $spool->recover($input->getOption('recover-timeout'));
-                    } else {
-                        $spool->recover();
-                    }
-                }
-
-                /* @var \Swift_Transport $realTransport */
-                $realTransport = $this->getContainer()->get(sprintf('swiftmailer.mailer.%s.transport.real', $name));
-                $sent = $spool->flushQueue($realTransport);
-
-                $output->writeln(sprintf('<comment>%d</comment> emails sent', $sent));
+                $this->flushQueue($name, $transport, $input, $output);
             }
         } else {
             $output->writeln('No email to send as the spool is disabled.');
         }
+    }
+
+    /**
+     * @param string                          $name      The mailer name
+     * @param \Swift_Transport_SpoolTransport $transport The swiftmailer transport
+     * @param InputInterface                  $input     The input
+     * @param OutputInterface                 $output    The output
+     */
+    private function flushQueue($name, \Swift_Transport_SpoolTransport $transport, InputInterface $input,
+                                OutputInterface $output)
+    {
+        $spool = $transport->getSpool();
+
+        if ($spool instanceof \Swift_ConfigurableSpool) {
+            $spool->setMessageLimit($input->getOption('message-limit'));
+            $spool->setTimeLimit($input->getOption('time-limit'));
+        }
+
+        if ($spool instanceof DoctrineOrmSpool) {
+            if (null !== $input->getOption('recover-timeout')) {
+                $spool->recover($input->getOption('recover-timeout'));
+            } else {
+                $spool->recover();
+            }
+        }
+
+        /* @var \Swift_Transport $realTransport */
+        $realTransport = $this->getContainer()->get(sprintf('swiftmailer.mailer.%s.transport.real', $name));
+        $sent = $spool->flushQueue($realTransport);
+
+        $output->writeln(sprintf('<comment>%d</comment> emails sent', $sent));
     }
 }
