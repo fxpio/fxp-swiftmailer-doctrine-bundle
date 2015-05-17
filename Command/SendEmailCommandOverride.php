@@ -30,11 +30,11 @@ class SendEmailCommandOverride extends SendEmailCommand
     {
         $name = $input->getOption('mailer');
         if ($name) {
-            $this->processMailer($name, $input, $output);
+            $this->processDoctrineMailer($name, $input, $output);
         } else {
             $mailers = array_keys($this->getContainer()->getParameter('swiftmailer.mailers'));
             foreach ($mailers as $name) {
-                $this->processMailer($name, $input, $output);
+                $this->processDoctrineMailer($name, $input, $output);
             }
         }
     }
@@ -46,7 +46,7 @@ class SendEmailCommandOverride extends SendEmailCommand
      * @param InputInterface  $input  The input
      * @param OutputInterface $output The output
      */
-    private function processMailer($name, InputInterface $input, OutputInterface $output)
+    private function processDoctrineMailer($name, InputInterface $input, OutputInterface $output)
     {
         if (!$this->getContainer()->has(sprintf('swiftmailer.mailer.%s', $name))) {
             throw new \InvalidArgumentException(sprintf('The mailer "%s" does not exist.', $name));
