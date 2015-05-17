@@ -4,6 +4,7 @@ Sonatra Swiftmailer Doctrine Bundle
 [![Latest Version](https://img.shields.io/packagist/v/sonatra/swiftmailer-doctrine-bundle.svg)](https://packagist.org/packages/sonatra/swiftmailer-doctrine-bundle)
 [![Build Status](https://img.shields.io/travis/sonatra/SonatraSwiftmailerDoctrineBundle/master.svg)](https://travis-ci.org/sonatra/SonatraSwiftmailerDoctrineBundle)
 [![Coverage Status](https://img.shields.io/coveralls/sonatra/SonatraSwiftmailerDoctrineBundle/master.svg)](https://coveralls.io/r/sonatra/SonatraSwiftmailerDoctrineBundle?branch=master)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/sonatra/SonatraSwiftmailerDoctrineBundle/master.svg)](https://scrutinizer-ci.com/g/sonatra/SonatraSwiftmailerDoctrineBundle?branch=master)
 
 The Sonatra SwiftmailerDoctrineBundle add a doctrine entity spool for Swiftmailer.
 
