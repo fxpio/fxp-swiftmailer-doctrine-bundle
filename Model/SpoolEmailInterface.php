@@ -42,36 +42,20 @@ interface SpoolEmailInterface
     public function getMessage();
 
     /**
-     * Set the created date.
+     * Set the sent date.
      *
-     * @param \DateTime $createdAt The created date
-     *
-     * @return self
-     */
-    public function setCreatedAt(\DateTime $createdAt);
-
-    /**
-     * Get the created date.
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt();
-
-    /**
-     * Set the updated date.
-     *
-     * @param \DateTime $updatedAt The updated date
+     * @param \DateTime|null $sentAt The sent date
      *
      * @return self
      */
-    public function setUpdatedAt(\DateTime $updatedAt);
+    public function setSentAt($sentAt);
 
     /**
-     * Get the updated date.
+     * Get the sent date.
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
-    public function getUpdatedAt();
+    public function getSentAt();
 
     /**
      * Set the status.

@@ -161,7 +161,7 @@ class DoctrineOrmSpool extends \Swift_ConfigurableSpool
                 $email->setStatusMessage($e->getMessage());
             }
 
-            $email->setUpdatedAt(new \DateTime());
+            $email->setSentAt(new \DateTime());
             $this->om->persist($email);
             $this->om->flush();
 
@@ -189,7 +189,7 @@ class DoctrineOrmSpool extends \Swift_ConfigurableSpool
     {
         foreach ($emails as $email) {
             $email->setStatus(SpoolEmailStatus::STATUS_SENDING);
-            $email->setUpdatedAt(new \DateTime());
+            $email->setSentAt(null);
             $this->om->persist($email);
         }
 

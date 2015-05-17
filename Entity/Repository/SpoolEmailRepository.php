@@ -27,13 +27,18 @@ class SpoolEmailRepository extends EntityRepository implements SpoolEmailReposit
      */
     public function findEmailsToSend($limit = null)
     {
-        $limit = $limit > 0 ? $limit : null;
+        $qb = $this->createQueryBuilder('se')
+            ->where('se.status = :status AND (se.sentAt IS NULL OR se.sentAt <= :sentAt)')
+            ->orderBy('se.sentAt','ASC')
+            ->setParameter('status', SpoolEmailStatus::STATUS_WAITING)
+            ->setParameter('sentAt', new \DateTime())
+        ;
 
-        return $this->findBy(
-            array('status' => SpoolEmailStatus::STATUS_WAITING),
-            array('createdAt' => 'ASC'),
-            $limit
-        );
+        if ($limit > 0) {
+            $qb->setMaxResults($limit);
+        }
+
+        return $qb->getQuery()->getResult();
     }
 
     /**
@@ -44,7 +49,7 @@ class SpoolEmailRepository extends EntityRepository implements SpoolEmailReposit
         $timeoutDate = new \DateTime();
         $timeoutDate->modify(sprintf('-%s seconds', $timeout));
 
-        $str = sprintf('UPDATE %s se SET se.status = :waitStatus, se.statusMessage = null WHERE se.status = :failedStatus AND se.createdAt <= :timeoutDate', $this->getClassName());
+        $str = sprintf('UPDATE %s se SET se.sentAt = null, se.status = :waitStatus, se.statusMessage = null WHERE se.status = :failedStatus AND se.sentAt <= :timeoutDate', $this->getClassName());
         $query = $this->getEntityManager()->createQuery($str)
             ->setParameter('waitStatus', SpoolEmailStatus::STATUS_WAITING)
             ->setParameter('failedStatus', SpoolEmailStatus::STATUS_FAILED)

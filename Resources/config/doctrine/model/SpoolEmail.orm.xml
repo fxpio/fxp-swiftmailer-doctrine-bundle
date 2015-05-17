@@ -8,9 +8,7 @@
 
         <field name="message" column="message" type="text" nullable="false"/>
 
-        <field name="createdAt" column="created_at" type="datetime" nullable="false"/>
-
-        <field name="updatedAt" column="updated_at" type="datetime" nullable="false"/>
+        <field name="sentAt" column="sent_at" type="datetime" nullable="true"/>
 
         <field name="status" column="status" type="integer" nullable="false"/>
 

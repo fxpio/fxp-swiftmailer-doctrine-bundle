@@ -31,14 +31,9 @@ abstract class SpoolEmail implements SpoolEmailInterface
     protected $message;
 
     /**
-     * @var \DateTime
+     * @var \DateTime|null
      */
-    protected $createdAt;
-
-    /**
-     * @var \DateTime
-     */
-    protected $updatedAt;
+    protected $sentAt;
 
     /**
      * @var int
@@ -58,8 +53,6 @@ abstract class SpoolEmail implements SpoolEmailInterface
     public function __construct(\Swift_Mime_Message $message)
     {
         $this->setMessage($message);
-        $this->createdAt = new \DateTime();
-        $this->updatedAt = clone $this->createdAt;
         $this->status = SpoolEmailStatus::STATUS_WAITING;
     }
 
@@ -92,37 +85,19 @@ abstract class SpoolEmail implements SpoolEmailInterface
     /**
      * {@inheritdoc}
      */
-    public function setCreatedAt(\DateTime $createdAt)
+    public function getSentAt()
     {
-        $this->createdAt = $createdAt;
+        return $this->sentAt;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setSentAt($sentAt)
+    {
+        $this->sentAt = $sentAt;
 
         return $this;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setUpdatedAt(\DateTime $updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
     }
 
     /**
