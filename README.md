@@ -3,6 +3,13 @@ Sonatra Swiftmailer Doctrine Bundle
 
 The Sonatra SwiftmailerDoctrineBundle add a doctrine entity spool for Swiftmailer.
 
+Features include:
+
+- Doctrine ORM Spool
+- Spool Email model and entity class for Doctrine
+- Doctrine orm mapping
+- Overriding of the `swiftmailer:spool:send` command for use the `--recover-timeout` option with doctrine spool (switched off)
+
 Documentation
 -------------
 
