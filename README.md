@@ -1,6 +1,8 @@
 Sonatra Swiftmailer Doctrine Bundle
 ===================================
 
+[![Latest Version](https://img.shields.io/packagist/v/sonatra/swiftmailer-doctrine-bundle.svg)](https://packagist.org/packages/sonatra/swiftmailer-doctrine-bundle)
+
 The Sonatra SwiftmailerDoctrineBundle add a doctrine entity spool for Swiftmailer.
 
 Features include:
