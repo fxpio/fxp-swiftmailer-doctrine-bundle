@@ -29,7 +29,7 @@ class SpoolEmailRepository extends EntityRepository implements SpoolEmailReposit
     {
         $qb = $this->createQueryBuilder('se')
             ->where('se.status = :status AND (se.sentAt IS NULL OR se.sentAt <= :sentAt)')
-            ->orderBy('se.sentAt','ASC')
+            ->orderBy('se.sentAt', 'ASC')
             ->setParameter('status', SpoolEmailStatus::STATUS_WAITING)
             ->setParameter('sentAt', new \DateTime())
         ;
