@@ -149,26 +149,8 @@ class DoctrineOrmSpool extends \Swift_ConfigurableSpool
         $emails = $this->prepareEmails($emails);
 
         foreach ($emails as $email) {
-            try {
-                if ($transport->send($email->getMessage(), $failedRecipients)) {
-                    $email->setStatus(SpoolEmailStatus::STATUS_SUCCESS);
-                    $count++;
-                } else {
-                    $email->setStatus(SpoolEmailStatus::STATUS_FAILED);
-                }
-            } catch (\Swift_TransportException $e) {
-                $email->setStatus(SpoolEmailStatus::STATUS_FAILED);
-                $email->setStatusMessage($e->getMessage());
-            }
-
-            $email->setSentAt(new \DateTime());
-            $this->om->persist($email);
-            $this->om->flush();
-
-            if (SpoolEmailStatus::STATUS_SUCCESS === $email->getStatus()) {
-                $this->om->remove($email);
-                $this->om->flush();
-            }
+            $count += $this->sendEmail($transport, $email, $failedRecipients);
+            $this->flushEmail($email);
 
             if ($this->getTimeLimit() && (time() - $time) >= $this->getTimeLimit()) {
                 break;
@@ -197,5 +179,52 @@ class DoctrineOrmSpool extends \Swift_ConfigurableSpool
         reset($emails);
 
         return $emails;
+    }
+
+    /**
+     * Send the spool email.
+     *
+     * @param Swift_Transport     $transport        The swiftmailer transport
+     * @param SpoolEmailInterface $email            The spool email
+     * @param string[]|null       $failedRecipients The failed recipients
+     *
+     * @return int The count
+     */
+    protected function sendEmail(\Swift_Transport $transport, SpoolEmailInterface $email, &$failedRecipients)
+    {
+        $count = 0;
+
+        try {
+            if ($transport->send($email->getMessage(), $failedRecipients)) {
+                $email->setStatus(SpoolEmailStatus::STATUS_SUCCESS);
+                $count++;
+            } else {
+                $email->setStatus(SpoolEmailStatus::STATUS_FAILED);
+            }
+        } catch (\Swift_TransportException $e) {
+            $email->setStatus(SpoolEmailStatus::STATUS_FAILED);
+            $email->setStatusMessage($e->getMessage());
+        }
+
+        return $count;
+    }
+
+    /**
+     * Update and flush the spool email.
+     *
+     * @param SpoolEmailInterface $email The spool email
+     */
+    protected function flushEmail(SpoolEmailInterface $email)
+    {
+        $email->setSentAt(new \DateTime());
+        $this->om->persist($email);
+        $this->om->flush();
+
+        if (SpoolEmailStatus::STATUS_SUCCESS === $email->getStatus()) {
+            $this->om->remove($email);
+            $this->om->flush();
+        }
+
+        $this->om->detach($email);
     }
 }
