@@ -35,5 +35,9 @@ class SonatraSwiftmailerDoctrineExtension extends Extension
         $loader->load('doctrine_spool.xml');
 
         $container->setParameter('sonatra_swiftmailer_doctrine.spool_email_class', $config['spool_email_class']);
+
+        if ($config['override_send_command']) {
+            $loader->load('command.xml');
+        }
     }
 }

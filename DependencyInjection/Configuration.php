@@ -32,6 +32,7 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('spool_email_class')->defaultValue('Sonatra\Bundle\SwiftmailerDoctrineBundle\Model\SpoolEmailInterface')->end()
+                ->scalarNode('override_send_command')->defaultTrue()->end()
             ->end()
         ;
 
