@@ -15,7 +15,7 @@ use Sonatra\Bundle\SwiftmailerDoctrineBundle\Entity\SpoolEmail;
 use Sonatra\Bundle\SwiftmailerDoctrineBundle\SpoolEmailStatus;
 
 /**
- * Configuration Tests.
+ * SpoolEmail Entity Tests.
  *
  * @author François Pluchino <francois.pluchino@sonatra.com>
  */
