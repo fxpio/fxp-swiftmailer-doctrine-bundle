@@ -43,6 +43,11 @@ class DoctrineOrmSpool extends \Swift_ConfigurableSpool
     protected $class;
 
     /**
+     * @var bool
+     */
+    protected $started = false;
+
+    /**
      * Constructor.
      *
      * @param RegistryInterface $registry The doctrine registry
@@ -76,7 +81,7 @@ class DoctrineOrmSpool extends \Swift_ConfigurableSpool
      */
     public function start()
     {
-        // skip action.
+        $this->started = true;
     }
 
     /**
@@ -84,7 +89,7 @@ class DoctrineOrmSpool extends \Swift_ConfigurableSpool
      */
     public function stop()
     {
-        // skip action.
+        $this->started = false;
     }
 
     /**
@@ -92,7 +97,7 @@ class DoctrineOrmSpool extends \Swift_ConfigurableSpool
      */
     public function isStarted()
     {
-        return true;
+        return $this->started;
     }
 
     /**
