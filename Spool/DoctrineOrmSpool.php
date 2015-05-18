@@ -152,13 +152,20 @@ class DoctrineOrmSpool extends \Swift_ConfigurableSpool
         $count = 0;
         $time = time();
         $emails = $this->prepareEmails($emails);
+        $skip = false;
 
         foreach ($emails as $email) {
+            if ($skip) {
+                $email->setStatus(SpoolEmailStatus::STATUS_FAILED);
+                $email->setStatusMessage('The time limit of execution is exceeded');
+                continue;
+            }
+
             $count += $this->sendEmail($transport, $email, $failedRecipients);
             $this->flushEmail($email);
 
             if ($this->getTimeLimit() && (time() - $time) >= $this->getTimeLimit()) {
-                break;
+                $skip = true;
             }
         }
 
