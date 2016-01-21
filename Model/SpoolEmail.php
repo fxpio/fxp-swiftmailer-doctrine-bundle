@@ -21,7 +21,7 @@ use Sonatra\Bundle\SwiftmailerDoctrineBundle\SpoolEmailStatus;
 abstract class SpoolEmail implements SpoolEmailInterface
 {
     /**
-     * @var int
+     * @var int|string|null
      */
     protected $id;
 

@@ -21,7 +21,7 @@ interface SpoolEmailInterface
     /**
      * Get the id.
      *
-     * @return int
+     * @return int|string|null
      */
     public function getId();
 
