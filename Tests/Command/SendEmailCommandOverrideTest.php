@@ -60,15 +60,15 @@ class SendEmailCommandOverrideTest extends \PHPUnit_Framework_TestCase
             $this->markTestSkipped('Symfony Console is not available.');
         }
 
-        $this->application = $this->getMockBuilder('Symfony\\Bundle\\FrameworkBundle\\Console\\Application')
+        $this->application = $this->getMockBuilder('Symfony\Bundle\FrameworkBundle\Console\Application')
             ->disableOriginalConstructor()
             ->getMock();
-        $this->definition = $this->getMockBuilder('Symfony\\Component\\Console\\Input\\InputDefinition')
+        $this->definition = $this->getMockBuilder('Symfony\Component\Console\Input\InputDefinition')
             ->disableOriginalConstructor()
             ->getMock();
-        $this->kernel = $this->getMock('Symfony\\Component\\HttpKernel\\KernelInterface');
-        $this->helperSet = $this->getMock('Symfony\\Component\\Console\\Helper\\HelperSet');
-        $this->container = $this->getMock('Symfony\\Component\\DependencyInjection\\ContainerInterface');
+        $this->kernel = $this->getMockBuilder('Symfony\Component\HttpKernel\KernelInterface')->getMock();
+        $this->helperSet = $this->getMockBuilder('Symfony\Component\Console\Helper\HelperSet')->getMock();
+        $this->container = $this->getMockBuilder('Symfony\Component\DependencyInjection\ContainerInterface')->getMock();
 
         $this->application->expects($this->any())
             ->method('getDefinition')
@@ -100,6 +100,10 @@ class SendEmailCommandOverrideTest extends \PHPUnit_Framework_TestCase
         $this->command->setApplication($application);
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The mailer "invalid" does not exist
+     */
     public function testInvalidMailerName()
     {
         $this->container->expects($this->any())
@@ -107,7 +111,6 @@ class SendEmailCommandOverrideTest extends \PHPUnit_Framework_TestCase
             ->with($this->equalTo('swiftmailer.mailers'))
             ->will($this->returnValue(array()));
 
-        $this->setExpectedException('\InvalidArgumentException', 'The mailer "invalid" does not exist');
         $this->command->run(new ArrayInput(array('--mailer' => 'invalid')), new NullOutput());
     }
 

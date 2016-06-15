@@ -23,30 +23,32 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class DoctrineOrmSpoolTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @expectedException \Sonatra\Bundle\SwiftmailerDoctrineBundle\Exception\InvalidArgumentException
+     * @expectedExceptionMessage The "stdClass" class does not extend "Sonatra\Bundle\SwiftmailerDoctrineBundle\Model\SpoolEmailInterface
+     */
     public function testInvalidClass()
     {
-        $msg = 'The "stdClass" class does not extend "Sonatra\Bundle\SwiftmailerDoctrineBundle\Model\SpoolEmailInterface';
-        $this->setExpectedException('Sonatra\Bundle\SwiftmailerDoctrineBundle\Exception\InvalidArgumentException', $msg);
-
         /* @var RegistryInterface|\PHPUnit_Framework_MockObject_MockObject $registry */
-        $registry = $this->getMock('Symfony\Bridge\Doctrine\RegistryInterface');
+        $registry = $this->getMockBuilder('Symfony\Bridge\Doctrine\RegistryInterface')->getMock();
 
         new DoctrineOrmSpool($registry, 'stdClass');
     }
 
+    /**
+     * @expectedException \Sonatra\Bundle\SwiftmailerDoctrineBundle\Exception\InvalidArgumentException
+     * @expectedExceptionMessage The repository of "Sonatra\Bundle\SwiftmailerDoctrineBundle\Entity\SpoolEmail" must be an instance of "Sonatra\Bundle\SwiftmailerDoctrineBundle\Model\Repository\SpoolEmailRepositoryInterface"
+     */
     public function testInvalidRepository()
     {
-        $msg = 'The repository of "Sonatra\Bundle\SwiftmailerDoctrineBundle\Entity\SpoolEmail" must be an instance of "Sonatra\Bundle\SwiftmailerDoctrineBundle\Model\Repository\SpoolEmailRepositoryInterface"';
-        $this->setExpectedException('Sonatra\Bundle\SwiftmailerDoctrineBundle\Exception\InvalidArgumentException', $msg);
-
-        $repo = $this->getMock('Doctrine\ORM\ObjectRepository');
-        $manager = $this->getMock('Doctrine\Common\Persistence\ObjectManager');
+        $repo = $this->getMockBuilder('Doctrine\ORM\ObjectRepository')->getMock();
+        $manager = $this->getMockBuilder('Doctrine\Common\Persistence\ObjectManager')->getMock();
         $manager->expects($this->any())
             ->method('getRepository')
             ->will($this->returnValue($repo));
 
         /* @var RegistryInterface|\PHPUnit_Framework_MockObject_MockObject $registry */
-        $registry = $this->getMock('Symfony\Bridge\Doctrine\RegistryInterface');
+        $registry = $this->getMockBuilder('Symfony\Bridge\Doctrine\RegistryInterface')->getMock();
         $registry->expects($this->any())
             ->method('getManagerForClass')
             ->will($this->returnValue($manager))
@@ -205,18 +207,18 @@ class DoctrineOrmSpoolTest extends \PHPUnit_Framework_TestCase
      */
     protected function createSpool($emailsToSend = array())
     {
-        $repo = $this->getMock('Sonatra\Bundle\SwiftmailerDoctrineBundle\Model\Repository\SpoolEmailRepositoryInterface');
+        $repo = $this->getMockBuilder('Sonatra\Bundle\SwiftmailerDoctrineBundle\Model\Repository\SpoolEmailRepositoryInterface')->getMock();
         $repo->expects($this->any())
             ->method('findEmailsToSend')
             ->will($this->returnValue($emailsToSend));
 
-        $manager = $this->getMock('Doctrine\Common\Persistence\ObjectManager');
+        $manager = $this->getMockBuilder('Doctrine\Common\Persistence\ObjectManager')->getMock();
         $manager->expects($this->any())
             ->method('getRepository')
             ->will($this->returnValue($repo));
 
         /* @var RegistryInterface|\PHPUnit_Framework_MockObject_MockObject $registry */
-        $registry = $this->getMock('Symfony\Bridge\Doctrine\RegistryInterface');
+        $registry = $this->getMockBuilder('Symfony\Bridge\Doctrine\RegistryInterface')->getMock();
         $registry->expects($this->any())
             ->method('getManagerForClass')
             ->will($this->returnValue($manager))

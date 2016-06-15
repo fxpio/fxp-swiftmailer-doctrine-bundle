@@ -79,7 +79,7 @@ class SpoolEmailRepositoryTest extends \PHPUnit_Framework_TestCase
             ->method('setParameter')
             ->will($this->returnSelf());
 
-        $em = $this->getMock('Doctrine\ORM\EntityManagerInterface');
+        $em = $this->getMockBuilder('Doctrine\ORM\EntityManagerInterface')->getMock();
         $em->expects($this->any())
             ->method('createQuery')
             ->will($this->returnValue($q));
