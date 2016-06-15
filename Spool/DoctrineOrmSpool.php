@@ -16,7 +16,6 @@ use Sonatra\Bundle\SwiftmailerDoctrineBundle\Exception\InvalidArgumentException;
 use Sonatra\Bundle\SwiftmailerDoctrineBundle\Model\Repository\SpoolEmailRepositoryInterface;
 use Sonatra\Bundle\SwiftmailerDoctrineBundle\Model\SpoolEmailInterface;
 use Sonatra\Bundle\SwiftmailerDoctrineBundle\SpoolEmailStatus;
-use Swift_Mime_Message;
 use Swift_Transport;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
