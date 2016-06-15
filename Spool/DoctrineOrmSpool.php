@@ -209,7 +209,7 @@ class DoctrineOrmSpool extends \Swift_ConfigurableSpool
         try {
             if ($transport->send($email->getMessage(), $failedRecipients)) {
                 $email->setStatus(SpoolEmailStatus::STATUS_SUCCESS);
-                $count++;
+                ++$count;
             } else {
                 $email->setStatus(SpoolEmailStatus::STATUS_FAILED);
             }
