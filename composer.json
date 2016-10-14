@@ -22,7 +22,10 @@
         "doctrine/orm": "~2.5"
     },
     "autoload": {
-        "psr-4": { "Sonatra\\Bundle\\SwiftmailerDoctrineBundle\\": "" }
+        "psr-4": { "Sonatra\\Bundle\\SwiftmailerDoctrineBundle\\": "" },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
     },
     "extra": {
         "branch-alias": {
