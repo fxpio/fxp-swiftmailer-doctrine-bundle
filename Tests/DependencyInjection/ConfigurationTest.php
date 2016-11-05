@@ -26,7 +26,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
         $process = new Processor();
         $configs = array();
         $validConfig = array(
-            'spool_email_class' => 'Sonatra\Bundle\SwiftmailerDoctrineBundle\Model\SpoolEmailInterface',
+            'spool_email_class' => 'Sonatra\Component\SwiftmailerDoctrine\Model\SpoolEmailInterface',
             'override_send_command' => true,
         );
 

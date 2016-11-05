@@ -1,7 +1,7 @@
 {
     "name": "sonatra/swiftmailer-doctrine-bundle",
     "type": "symfony-bundle",
-    "description": "Doctrine entity spool for Swiftmailer",
+    "description": "Doctrine spool for Swiftmailer",
     "keywords": ["swiftmailer", "spool", "doctrine"],
     "homepage": "https://github.com/sonatra/SonatraSwiftmailerDoctrineBundle",
     "license": "MIT",
@@ -14,12 +14,12 @@
     "require": {
         "php": ">=5.5.0",
         "symfony/framework-bundle": "~3.0",
-        "symfony/security": "~3.0",
-        "symfony/swiftmailer-bundle": "~2.3",
-        "doctrine/doctrine-bundle": "~1.6"
+        "symfony/console": "~3.0",
+        "symfony/swiftmailer-bundle": "~2.4",
+        "sonatra/swiftmailer-doctrine": "~1.0@dev"
     },
     "require-dev": {
-        "doctrine/orm": "~2.5"
+        "doctrine/doctrine-bundle": "~1.6"
     },
     "autoload": {
         "psr-4": { "Sonatra\\Bundle\\SwiftmailerDoctrineBundle\\": "" },

@@ -169,7 +169,7 @@ class SendEmailCommandOverrideTest extends \PHPUnit_Framework_TestCase
             ->with($this->equalTo('swiftmailer.mailer.enabled.spool.enabled'))
             ->will($this->returnValue(true));
 
-        $spool = $this->getMockBuilder('Sonatra\Bundle\SwiftmailerDoctrineBundle\Spool\DoctrineOrmSpool')
+        $spool = $this->getMockBuilder('Sonatra\Component\SwiftmailerDoctrine\Spool\DoctrineSpool')
             ->disableOriginalConstructor()
             ->getMock()
         ;

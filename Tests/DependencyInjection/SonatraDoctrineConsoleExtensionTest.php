@@ -47,7 +47,7 @@ class SonatraDoctrineConsoleExtensionTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($container->hasAlias('swiftmailer.mailer.default.spool.sonatra_doctrine_orm_spool'));
 
         $this->assertTrue($container->hasParameter('sonatra_swiftmailer_doctrine.spool_email_class'));
-        $this->assertEquals('Sonatra\Bundle\SwiftmailerDoctrineBundle\Model\SpoolEmailInterface', $container->getParameter('sonatra_swiftmailer_doctrine.spool_email_class'));
+        $this->assertEquals('Sonatra\Component\SwiftmailerDoctrine\Model\SpoolEmailInterface', $container->getParameter('sonatra_swiftmailer_doctrine.spool_email_class'));
 
         $this->assertTrue($container->hasDefinition('sonatra_swiftmailer_doctrine.command.send_email'));
     }

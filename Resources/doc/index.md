@@ -3,7 +3,7 @@ Getting Started
 
 ## Prerequisites
 
-This version of the bundle requires Symfony 2.6+, and configuring of the Swiftmailer bundle should
+This version of the bundle requires Symfony 3, and configuring of the Swiftmailer bundle should
 be performed (see the [doc](http://symfony.com/doc/current/cookbook/email/email.html), if this isn't the case).
 
 ## Installation
@@ -32,7 +32,7 @@ Add Sonatra SwiftmailerDoctrineBundle in your composer.json:
 Or tell composer to download the bundle by running the command:
 
 ```bash
-$ php composer.phar update sonatra/swiftmailer-doctrine-bundle
+$ php composer.phar require sonatra/swiftmailer-doctrine-bundle:"~1.0"
 ```
 
 Composer will install the bundle to your project's `vendor/sonatra` directory.
@@ -62,7 +62,7 @@ public function registerBundles()
 
 namespace Acme\CoreBundle\Entity;
 
-use Sonatra\Bundle\SwiftmailerDoctrineBundle\Model\SpoolEmail as BaseSpoolEmail;
+use Sonatra\Component\SwiftmailerDoctrine\Model\SpoolEmail as BaseSpoolEmail;
 
 class SpoolEmail extends BaseSpoolEmail
 {

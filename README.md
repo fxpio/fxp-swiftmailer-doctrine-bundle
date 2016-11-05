@@ -7,11 +7,11 @@ Sonatra Swiftmailer Doctrine Bundle
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/sonatra/SonatraSwiftmailerDoctrineBundle/master.svg)](https://scrutinizer-ci.com/g/sonatra/SonatraSwiftmailerDoctrineBundle?branch=master)
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/dc82c2cc-2c80-40d2-853e-deb0bbc228ac.svg)](https://insight.sensiolabs.com/projects/dc82c2cc-2c80-40d2-853e-deb0bbc228ac)
 
-The Sonatra SwiftmailerDoctrineBundle add a doctrine entity spool for Swiftmailer.
+The Sonatra SwiftmailerDoctrineBundle add a doctrine spool for Swiftmailer.
 
 Features include:
 
-- Doctrine ORM Spool
+- Doctrine Spool
 - Spool Email model and entity class for Doctrine
 - Doctrine orm mapping
 - Overriding of the `swiftmailer:spool:send` command for use the `--recover-timeout` option with doctrine spool (switched off)
@@ -40,7 +40,7 @@ About
 -----
 
 Sonatra SwiftmailerDoctrineBundle is a [sonatra](https://github.com/sonatra) initiative.
-See also the list of [contributors](https://github.com/sonatra/SonatraSwiftmailerDoctrineBundle/contributors).
+See also the list of [contributors](https://github.com/sonatra/SonatraSwiftmailerDoctrineBundle/graphs/contributors).
 
 Reporting an issue or a feature request
 ---------------------------------------

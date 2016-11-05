@@ -11,7 +11,7 @@
 
 namespace Sonatra\Bundle\SwiftmailerDoctrineBundle\Command;
 
-use Sonatra\Bundle\SwiftmailerDoctrineBundle\Spool\DoctrineOrmSpool;
+use Sonatra\Component\SwiftmailerDoctrine\Spool\DoctrineSpool;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Bundle\SwiftmailerBundle\Command\SendEmailCommand;
@@ -83,7 +83,7 @@ class SendEmailCommandOverride extends SendEmailCommand
             $spool->setTimeLimit($input->getOption('time-limit'));
         }
 
-        if ($spool instanceof DoctrineOrmSpool) {
+        if ($spool instanceof DoctrineSpool) {
             if (null !== $input->getOption('recover-timeout')) {
                 $spool->recover($input->getOption('recover-timeout'));
             } else {

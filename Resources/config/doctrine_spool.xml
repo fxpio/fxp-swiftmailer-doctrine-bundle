@@ -6,7 +6,7 @@
 
     <parameters>
 
-        <parameter key="swiftmailer.spool.sonatra_doctrine_orm_spool.class">Sonatra\Bundle\SwiftmailerDoctrineBundle\Spool\DoctrineOrmSpool</parameter>
+        <parameter key="swiftmailer.spool.sonatra_doctrine_orm_spool.class">Sonatra\Component\SwiftmailerDoctrine\Spool\DoctrineSpool</parameter>
 
     </parameters>
 
