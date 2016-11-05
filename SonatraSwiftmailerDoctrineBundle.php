@@ -34,7 +34,7 @@ class SonatraSwiftmailerDoctrineBundle extends Bundle
             $container->addCompilerPass(
                 DoctrineOrmMappingsPass::createXmlMappingDriver(
                     array(
-                        realpath(dirname($ref->getFileName()).'/Resources/config/doctrine/model') => 'Sonatra\Bundle\SwiftmailerDoctrineBundle\Model',
+                        realpath(dirname($ref->getFileName()).'/Resources/config/doctrine/model') => 'Sonatra\Component\SwiftmailerDoctrine\Model',
                     )
                 )
             );
