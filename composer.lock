@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "42c98058e465f8fa9cd70c2474030413",
-    "content-hash": "eefcb87efc94065c4e42fe0d3c82bd04",
+    "hash": "c80bf51de598d96dd45241bee41a66ad",
+    "content-hash": "03ef4de00ed2d49665f2cd9fbb8807cc",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -552,17 +552,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-swiftmailer-doctrine.git",
-                "reference": "dab94d7ddb19cd87bf48870542e297fd4a710f87"
+                "reference": "472805b3a64ae6e1ffd281188d6173ed1b0159ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-swiftmailer-doctrine/zipball/dab94d7ddb19cd87bf48870542e297fd4a710f87",
-                "reference": "dab94d7ddb19cd87bf48870542e297fd4a710f87",
+                "url": "https://api.github.com/repos/sonatra/sonatra-swiftmailer-doctrine/zipball/472805b3a64ae6e1ffd281188d6173ed1b0159ce",
+                "reference": "472805b3a64ae6e1ffd281188d6173ed1b0159ce",
                 "shasum": ""
             },
             "require": {
                 "doctrine/common": "~2.6",
-                "php": ">=5.5.0",
+                "php": ">=5.6.0",
                 "swiftmailer/swiftmailer": "~5.4"
             },
             "require-dev": {
@@ -599,7 +599,7 @@
                 "spool",
                 "swiftmailer"
             ],
-            "time": "2016-11-05 13:20:27"
+            "time": "2016-11-05 14:32:09"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2554,7 +2554,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.5.0"
+        "php": ">=5.6.0"
     },
     "platform-dev": []
 }
