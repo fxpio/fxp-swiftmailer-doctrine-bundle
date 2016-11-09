@@ -3,7 +3,7 @@
     "type": "symfony-bundle",
     "description": "Doctrine spool for Swiftmailer",
     "keywords": ["swiftmailer", "spool", "doctrine"],
-    "homepage": "https://github.com/sonatra/SonatraSwiftmailerDoctrineBundle",
+    "homepage": "https://github.com/sonatra/sonatra-swiftmailer-doctrine-bundle",
     "license": "MIT",
     "authors": [
         {
