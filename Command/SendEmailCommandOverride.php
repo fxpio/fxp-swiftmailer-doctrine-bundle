@@ -12,9 +12,9 @@
 namespace Sonatra\Bundle\SwiftmailerDoctrineBundle\Command;
 
 use Sonatra\Component\SwiftmailerDoctrine\Spool\DoctrineSpool;
+use Symfony\Bundle\SwiftmailerBundle\Command\SendEmailCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Bundle\SwiftmailerBundle\Command\SendEmailCommand;
 
 /**
  * Override the Symfony SendEmailCommand for work with doctrine spool and recover-timeout.
