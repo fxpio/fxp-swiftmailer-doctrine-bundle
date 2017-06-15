@@ -11,6 +11,7 @@
 
 namespace Sonatra\Bundle\SwiftmailerDoctrineBundle\Tests\Command;
 
+use PHPUnit\Framework\TestCase;
 use Sonatra\Bundle\SwiftmailerDoctrineBundle\Command\SendEmailCommandOverride;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Helper\HelperSet;
@@ -26,7 +27,7 @@ use Symfony\Component\HttpKernel\KernelInterface;
  *
  * @author François Pluchino <francois.pluchino@sonatra.com>
  */
-class SendEmailCommandOverrideTest extends \PHPUnit_Framework_TestCase
+class SendEmailCommandOverrideTest extends TestCase
 {
     /**
      * @var Application|\PHPUnit_Framework_MockObject_MockObject
