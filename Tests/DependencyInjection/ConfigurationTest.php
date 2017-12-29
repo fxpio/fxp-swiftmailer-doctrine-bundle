@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Sonatra package.
+ * This file is part of the Fxp package.
  *
- * (c) François Pluchino <francois.pluchino@sonatra.com>
+ * (c) François Pluchino <francois.pluchino@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Sonatra\Bundle\SwiftmailerDoctrineBundle\Tests\DependencyInjection;
+namespace Fxp\Bundle\SwiftmailerDoctrineBundle\Tests\DependencyInjection;
 
+use Fxp\Bundle\SwiftmailerDoctrineBundle\DependencyInjection\Configuration;
 use PHPUnit\Framework\TestCase;
-use Sonatra\Bundle\SwiftmailerDoctrineBundle\DependencyInjection\Configuration;
 use Symfony\Component\Config\Definition\Processor;
 
 /**
  * Configuration Tests.
  *
- * @author François Pluchino <francois.pluchino@sonatra.com>
+ * @author François Pluchino <francois.pluchino@gmail.com>
  */
 class ConfigurationTest extends TestCase
 {
@@ -27,7 +27,7 @@ class ConfigurationTest extends TestCase
         $process = new Processor();
         $configs = array();
         $validConfig = array(
-            'spool_email_class' => 'Sonatra\Component\SwiftmailerDoctrine\Model\SpoolEmailInterface',
+            'spool_email_class' => 'Fxp\Component\SwiftmailerDoctrine\Model\SpoolEmailInterface',
             'override_send_command' => true,
         );
 

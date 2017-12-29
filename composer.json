@@ -1,14 +1,14 @@
 {
-    "name": "sonatra/swiftmailer-doctrine-bundle",
+    "name": "fxp/swiftmailer-doctrine-bundle",
     "type": "symfony-bundle",
     "description": "Doctrine spool for Swiftmailer",
     "keywords": ["swiftmailer", "spool", "doctrine"],
-    "homepage": "https://github.com/sonatra/sonatra-swiftmailer-doctrine-bundle",
+    "homepage": "https://github.com/fxpio/fxp-swiftmailer-doctrine-bundle",
     "license": "MIT",
     "authors": [
         {
             "name": "François Pluchino",
-            "email": "francois.pluchino@sonatra.com"
+            "email": "francois.pluchino@gmail.com"
         }
     ],
     "minimum-stability": "dev",
@@ -18,13 +18,13 @@
         "symfony/framework-bundle": "^3.4.0|^4.0.0",
         "symfony/console": "^3.4.0|^4.0.0",
         "symfony/swiftmailer-bundle": "^3.1.0",
-        "sonatra/swiftmailer-doctrine": "^1.0.0"
+        "fxp/swiftmailer-doctrine": "^1.0.0"
     },
     "require-dev": {
         "doctrine/doctrine-bundle": "^1.8.0"
     },
     "autoload": {
-        "psr-4": { "Sonatra\\Bundle\\SwiftmailerDoctrineBundle\\": "" },
+        "psr-4": { "Fxp\\Bundle\\SwiftmailerDoctrineBundle\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

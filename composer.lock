@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e3915c6c16e0c1759eb09705c08f9605",
+    "content-hash": "0de597d8ad0c741c211d04fd130be368",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -467,6 +467,61 @@
             "time": "2017-11-15T23:40:40+00:00"
         },
         {
+            "name": "fxp/swiftmailer-doctrine",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fxpio/fxp-swiftmailer-doctrine.git",
+                "reference": "ef8c88a171a08194e24e1b99b9569eccb7836b1e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fxpio/fxp-swiftmailer-doctrine/zipball/ef8c88a171a08194e24e1b99b9569eccb7836b1e",
+                "reference": "ef8c88a171a08194e24e1b99b9569eccb7836b1e",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": "^2.8.0",
+                "php": "^7.1.0",
+                "swiftmailer/swiftmailer": "^6.0.0"
+            },
+            "require-dev": {
+                "doctrine/orm": "^2.6.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Fxp\\Component\\SwiftmailerDoctrine\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Pluchino",
+                    "email": "francois.pluchino@gmail.com"
+                }
+            ],
+            "description": "Doctrine model spool for Swiftmailer",
+            "homepage": "https://github.com/fxpio/fxp-swiftmailer-doctrine",
+            "keywords": [
+                "doctrine",
+                "spool",
+                "swiftmailer"
+            ],
+            "time": "2017-12-29T15:38:08+00:00"
+        },
+        {
             "name": "psr/cache",
             "version": "1.0.1",
             "source": {
@@ -655,61 +710,6 @@
                 "simple-cache"
             ],
             "time": "2017-01-02T13:31:39+00:00"
-        },
-        {
-            "name": "sonatra/swiftmailer-doctrine",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonatra/sonatra-swiftmailer-doctrine.git",
-                "reference": "851bbf7d4479338709d1d76ac5b17f0077d605b5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-swiftmailer-doctrine/zipball/851bbf7d4479338709d1d76ac5b17f0077d605b5",
-                "reference": "851bbf7d4479338709d1d76ac5b17f0077d605b5",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/common": "^2.8.0",
-                "php": "^7.1.0",
-                "swiftmailer/swiftmailer": "^6.0.0"
-            },
-            "require-dev": {
-                "doctrine/orm": "^2.6.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Sonatra\\Component\\SwiftmailerDoctrine\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "François Pluchino",
-                    "email": "francois.pluchino@sonatra.com"
-                }
-            ],
-            "description": "Doctrine model spool for Swiftmailer",
-            "homepage": "https://github.com/sonatra/sonatra-swiftmailer-doctrine",
-            "keywords": [
-                "doctrine",
-                "spool",
-                "swiftmailer"
-            ],
-            "time": "2017-12-26T19:06:40+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

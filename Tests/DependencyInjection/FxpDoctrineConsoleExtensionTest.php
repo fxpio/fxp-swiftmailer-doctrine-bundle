@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Sonatra package.
+ * This file is part of the Fxp package.
  *
- * (c) François Pluchino <francois.pluchino@sonatra.com>
+ * (c) François Pluchino <francois.pluchino@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Sonatra\Bundle\SwiftmailerDoctrineBundle\Tests\DependencyInjection;
+namespace Fxp\Bundle\SwiftmailerDoctrineBundle\Tests\DependencyInjection;
 
+use Fxp\Bundle\SwiftmailerDoctrineBundle\DependencyInjection\FxpSwiftmailerDoctrineExtension;
+use Fxp\Bundle\SwiftmailerDoctrineBundle\FxpSwiftmailerDoctrineBundle;
 use PHPUnit\Framework\TestCase;
-use Sonatra\Bundle\SwiftmailerDoctrineBundle\DependencyInjection\SonatraSwiftmailerDoctrineExtension;
-use Sonatra\Bundle\SwiftmailerDoctrineBundle\SonatraSwiftmailerDoctrineBundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 use Symfony\Component\Filesystem\Filesystem;
@@ -21,9 +21,9 @@ use Symfony\Component\Filesystem\Filesystem;
 /**
  * Bundle Extension Tests.
  *
- * @author François Pluchino <francois.pluchino@sonatra.com>
+ * @author François Pluchino <francois.pluchino@gmail.com>
  */
-class SonatraDoctrineConsoleExtensionTest extends TestCase
+class FxpDoctrineConsoleExtensionTest extends TestCase
 {
     /**
      * @var string
@@ -32,7 +32,7 @@ class SonatraDoctrineConsoleExtensionTest extends TestCase
 
     protected function setUp()
     {
-        $this->cacheDir = sys_get_temp_dir().'/sonatra_swift_mailer_doctrine_tests';
+        $this->cacheDir = sys_get_temp_dir().'/fxp_swift_mailer_doctrine_tests';
     }
 
     protected function tearDown()
@@ -44,13 +44,13 @@ class SonatraDoctrineConsoleExtensionTest extends TestCase
     public function testCompileContainerWithExtension()
     {
         $container = $this->getContainer();
-        $this->assertTrue($container->hasDefinition('swiftmailer.spool.sonatra_doctrine_orm_spool'));
-        $this->assertTrue($container->hasAlias('swiftmailer.mailer.default.spool.sonatra_doctrine_orm_spool'));
+        $this->assertTrue($container->hasDefinition('swiftmailer.spool.fxp_doctrine_orm_spool'));
+        $this->assertTrue($container->hasAlias('swiftmailer.mailer.default.spool.fxp_doctrine_orm_spool'));
 
-        $this->assertTrue($container->hasParameter('sonatra_swiftmailer_doctrine.spool_email_class'));
-        $this->assertEquals('Sonatra\Component\SwiftmailerDoctrine\Model\SpoolEmailInterface', $container->getParameter('sonatra_swiftmailer_doctrine.spool_email_class'));
+        $this->assertTrue($container->hasParameter('fxp_swiftmailer_doctrine.spool_email_class'));
+        $this->assertEquals('Fxp\Component\SwiftmailerDoctrine\Model\SpoolEmailInterface', $container->getParameter('fxp_swiftmailer_doctrine.spool_email_class'));
 
-        $this->assertTrue($container->hasDefinition('sonatra_swiftmailer_doctrine.command.send_email'));
+        $this->assertTrue($container->hasDefinition('fxp_swiftmailer_doctrine.command.send_email'));
     }
 
     /**
@@ -72,10 +72,10 @@ class SonatraDoctrineConsoleExtensionTest extends TestCase
             'locale' => 'en',
         )));
 
-        $bundle = new SonatraSwiftmailerDoctrineBundle();
+        $bundle = new FxpSwiftmailerDoctrineBundle();
         $bundle->build($container); // Attach all default factories
 
-        $extension = new SonatraSwiftmailerDoctrineExtension();
+        $extension = new FxpSwiftmailerDoctrineExtension();
         $container->registerExtension($extension);
         $config = array();
         $extension->load(array($config), $container);

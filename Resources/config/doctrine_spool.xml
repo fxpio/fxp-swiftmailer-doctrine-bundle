@@ -6,18 +6,18 @@
 
     <parameters>
 
-        <parameter key="swiftmailer.spool.sonatra_doctrine_orm_spool.class">Sonatra\Component\SwiftmailerDoctrine\Spool\DoctrineSpool</parameter>
+        <parameter key="swiftmailer.spool.fxp_doctrine_orm_spool.class">Fxp\Component\SwiftmailerDoctrine\Spool\DoctrineSpool</parameter>
 
     </parameters>
 
     <services>
 
-        <service id="swiftmailer.spool.sonatra_doctrine_orm_spool" class="%swiftmailer.spool.sonatra_doctrine_orm_spool.class%">
+        <service id="swiftmailer.spool.fxp_doctrine_orm_spool" class="%swiftmailer.spool.fxp_doctrine_orm_spool.class%">
             <argument type="service" id="doctrine"/>
-            <argument>%sonatra_swiftmailer_doctrine.spool_email_class%</argument>
+            <argument>%fxp_swiftmailer_doctrine.spool_email_class%</argument>
         </service>
 
-        <service id="swiftmailer.mailer.default.spool.sonatra_doctrine_orm_spool" alias="swiftmailer.spool.sonatra_doctrine_orm_spool" />
+        <service id="swiftmailer.mailer.default.spool.fxp_doctrine_orm_spool" alias="swiftmailer.spool.fxp_doctrine_orm_spool" />
 
     </services>
 

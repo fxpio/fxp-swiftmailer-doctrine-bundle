@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the Sonatra package.
+ * This file is part of the Fxp package.
  *
- * (c) François Pluchino <francois.pluchino@sonatra.com>
+ * (c) François Pluchino <francois.pluchino@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Sonatra\Bundle\SwiftmailerDoctrineBundle\Tests\Command;
+namespace Fxp\Bundle\SwiftmailerDoctrineBundle\Tests\Command;
 
+use Fxp\Bundle\SwiftmailerDoctrineBundle\Command\SendEmailCommandOverride;
 use PHPUnit\Framework\TestCase;
-use Sonatra\Bundle\SwiftmailerDoctrineBundle\Command\SendEmailCommandOverride;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Helper\HelperSet;
 use Symfony\Component\Console\Input\ArrayInput;
@@ -25,7 +25,7 @@ use Symfony\Component\HttpKernel\KernelInterface;
 /**
  * Send Email Command Tests.
  *
- * @author François Pluchino <francois.pluchino@sonatra.com>
+ * @author François Pluchino <francois.pluchino@gmail.com>
  */
 class SendEmailCommandOverrideTest extends TestCase
 {
@@ -170,7 +170,7 @@ class SendEmailCommandOverrideTest extends TestCase
             ->with($this->equalTo('swiftmailer.mailer.enabled.spool.enabled'))
             ->will($this->returnValue(true));
 
-        $spool = $this->getMockBuilder('Sonatra\Component\SwiftmailerDoctrine\Spool\DoctrineSpool')
+        $spool = $this->getMockBuilder('Fxp\Component\SwiftmailerDoctrine\Spool\DoctrineSpool')
             ->disableOriginalConstructor()
             ->getMock()
         ;

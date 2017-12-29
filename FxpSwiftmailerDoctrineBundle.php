@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Sonatra package.
+ * This file is part of the Fxp package.
  *
- * (c) François Pluchino <francois.pluchino@sonatra.com>
+ * (c) François Pluchino <francois.pluchino@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Sonatra\Bundle\SwiftmailerDoctrineBundle;
+namespace Fxp\Bundle\SwiftmailerDoctrineBundle;
 
 use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * @author François Pluchino <francois.pluchino@sonatra.com>
+ * @author François Pluchino <francois.pluchino@gmail.com>
  */
-class SonatraSwiftmailerDoctrineBundle extends Bundle
+class FxpSwiftmailerDoctrineBundle extends Bundle
 {
     /**
      * {@inheritdoc}
@@ -34,7 +34,7 @@ class SonatraSwiftmailerDoctrineBundle extends Bundle
             $container->addCompilerPass(
                 DoctrineOrmMappingsPass::createXmlMappingDriver(
                     array(
-                        realpath(dirname($ref->getFileName()).'/Resources/config/doctrine/model') => 'Sonatra\Component\SwiftmailerDoctrine\Model',
+                        realpath(dirname($ref->getFileName()).'/Resources/config/doctrine/model') => 'Fxp\Component\SwiftmailerDoctrine\Model',
                     )
                 )
             );

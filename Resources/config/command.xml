@@ -6,14 +6,14 @@
 
     <parameters>
 
-        <parameter key="sonatra_swiftmailer_doctrine.command.send_email.class">Sonatra\Bundle\SwiftmailerDoctrineBundle\Command\SendEmailCommandOverride</parameter>
+        <parameter key="fxp_swiftmailer_doctrine.command.send_email.class">Fxp\Bundle\SwiftmailerDoctrineBundle\Command\SendEmailCommandOverride</parameter>
 
     </parameters>
 
     <services>
 
-        <service id="sonatra_swiftmailer_doctrine.command.send_email"
-                 class="%sonatra_swiftmailer_doctrine.command.send_email.class%">
+        <service id="fxp_swiftmailer_doctrine.command.send_email"
+                 class="%fxp_swiftmailer_doctrine.command.send_email.class%">
 
             <tag name="console.command"/>
         </service>

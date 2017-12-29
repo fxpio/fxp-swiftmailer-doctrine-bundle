@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Sonatra package.
+ * This file is part of the Fxp package.
  *
- * (c) François Pluchino <francois.pluchino@sonatra.com>
+ * (c) François Pluchino <francois.pluchino@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Sonatra\Bundle\SwiftmailerDoctrineBundle\Command;
+namespace Fxp\Bundle\SwiftmailerDoctrineBundle\Command;
 
-use Sonatra\Component\SwiftmailerDoctrine\Spool\DoctrineSpool;
+use Fxp\Component\SwiftmailerDoctrine\Spool\DoctrineSpool;
 use Symfony\Bundle\SwiftmailerBundle\Command\SendEmailCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -19,7 +19,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * Override the Symfony SendEmailCommand for work with doctrine spool and recover-timeout.
  *
- * @author François Pluchino <francois.pluchino@sonatra.com>
+ * @author François Pluchino <francois.pluchino@gmail.com>
  */
 class SendEmailCommandOverride extends SendEmailCommand
 {

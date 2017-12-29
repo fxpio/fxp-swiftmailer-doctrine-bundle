@@ -19,23 +19,13 @@ Installation is a quick, 6 step process:
 
 ### Step 1: Download the bundle using composer
 
-Add Sonatra SwiftmailerDoctrineBundle in your composer.json:
-
-```js
-{
-    "require": {
-        "sonatra/swiftmailer-doctrine-bundle": "~1.0"
-    }
-}
-```
-
-Or tell composer to download the bundle by running the command:
+Tell composer to download the bundle by running the command:
 
 ```bash
-$ php composer.phar require sonatra/swiftmailer-doctrine-bundle:"~1.0"
+$ composer require fxp/swiftmailer-doctrine-bundle
 ```
 
-Composer will install the bundle to your project's `vendor/sonatra` directory.
+Composer will install the bundle to your project's `vendor/fxp` directory.
 
 ### Step 2: Enable the bundle
 
@@ -48,7 +38,7 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new Sonatra\Bundle\SwiftmailerDoctrineBundle\SonatraSwiftmailerDoctrineBundle(),
+        new Fxp\Bundle\SwiftmailerDoctrineBundle\FxpSwiftmailerDoctrineBundle(),
     );
 }
 ```
@@ -62,7 +52,7 @@ public function registerBundles()
 
 namespace Acme\CoreBundle\Entity;
 
-use Sonatra\Component\SwiftmailerDoctrine\Model\SpoolEmail as BaseSpoolEmail;
+use Fxp\Component\SwiftmailerDoctrine\Model\SpoolEmail as BaseSpoolEmail;
 
 class SpoolEmail extends BaseSpoolEmail
 {
@@ -92,12 +82,12 @@ Add the following configuration to your `config.yml`.
 
 ```yaml
 # app/config/config.yml
-sonatra_swiftmailer_doctrine:
+fxp_swiftmailer_doctrine:
     spool_email_class:  Acme\CoreBundle\Entity\SpoolEmail
 
 swiftmailer:
     spool:
-        type: sonatra_doctrine_orm_spool
+        type: fxp_doctrine_orm_spool
 ```
 
 ### Step 5: Update your database schema
@@ -108,17 +98,17 @@ $ php app/console doctrine:schema:update --force
 
 ### Step 6: Configure the bundle
 
-You can override the default configuration adding `sonatra_swiftmailer_doctrine` tree in `app/config/config.yml`.
-For see the reference of Sonatra Resource Configuration, execute command:
+You can override the default configuration adding `fxp_swiftmailer_doctrine` tree in `app/config/config.yml`.
+For see the reference of Fxp Resource Configuration, execute command:
 
 ```bash
-$ php app/console config:dump-reference SonatraSwiftmailerDoctrineBundle
+$ php app/console config:dump-reference FxpSwiftmailerDoctrineBundle
 ```
 
 ### Next Steps
 
 Now that you have completed the basic installation and configuration of the
-Sonatra SwiftmailerDoctrineBundle, you are ready to learn about usages of the bundle.
+Fxp SwiftmailerDoctrineBundle, you are ready to learn about usages of the bundle.
 
 You can now use the `mailer` service to send emails in the Doctrine Spool, and use the
 command `swiftmailer:spool:send` to send emails to recipients.
