@@ -25,11 +25,11 @@ class ConfigurationTest extends TestCase
     public function testEmptyConfiguration()
     {
         $process = new Processor();
-        $configs = array();
-        $validConfig = array(
+        $configs = [];
+        $validConfig = [
             'spool_email_class' => 'Fxp\Component\SwiftmailerDoctrine\Model\SpoolEmailInterface',
             'override_send_command' => true,
-        );
+        ];
 
         $config = new Configuration();
         $res = $process->process($config->getConfigTreeBuilder()->buildTree(), $configs);

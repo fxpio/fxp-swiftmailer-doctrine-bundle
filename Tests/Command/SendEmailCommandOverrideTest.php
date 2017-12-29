@@ -76,14 +76,14 @@ class SendEmailCommandOverrideTest extends TestCase
             ->will($this->returnValue($this->definition));
         $this->definition->expects($this->any())
             ->method('getArguments')
-            ->will($this->returnValue(array()));
+            ->will($this->returnValue([]));
         $this->definition->expects($this->any())
             ->method('getOptions')
-            ->will($this->returnValue(array(
+            ->will($this->returnValue([
                 new InputOption('--verbose', '-v', InputOption::VALUE_NONE, 'Increase verbosity of messages.'),
                 new InputOption('--env', '-e', InputOption::VALUE_REQUIRED, 'The Environment name.', 'dev'),
                 new InputOption('--no-debug', null, InputOption::VALUE_NONE, 'Switches off debug mode.'),
-            )));
+            ]));
         $this->application->expects($this->any())
             ->method('getKernel')
             ->will($this->returnValue($this->kernel));
@@ -110,9 +110,9 @@ class SendEmailCommandOverrideTest extends TestCase
         $this->container->expects($this->any())
             ->method('getParameter')
             ->with($this->equalTo('swiftmailer.mailers'))
-            ->will($this->returnValue(array()));
+            ->will($this->returnValue([]));
 
-        $this->command->run(new ArrayInput(array('--mailer' => 'invalid')), new NullOutput());
+        $this->command->run(new ArrayInput(['--mailer' => 'invalid']), new NullOutput());
     }
 
     public function testDisabledMailer()
@@ -122,7 +122,7 @@ class SendEmailCommandOverrideTest extends TestCase
             ->with($this->equalTo('swiftmailer.mailer.disabled'))
             ->will($this->returnValue(true));
 
-        $this->command->run(new ArrayInput(array('--mailer' => 'disabled')), new NullOutput());
+        $this->command->run(new ArrayInput(['--mailer' => 'disabled']), new NullOutput());
     }
 
     public function testDisabledMailers()
@@ -130,22 +130,22 @@ class SendEmailCommandOverrideTest extends TestCase
         $this->container->expects($this->at(0))
             ->method('getParameter')
             ->with($this->equalTo('swiftmailer.mailers'))
-            ->will($this->returnValue(array('disabled' => 'disabled')));
+            ->will($this->returnValue(['disabled' => 'disabled']));
 
         $this->container->expects($this->any())
             ->method('has')
             ->with($this->equalTo('swiftmailer.mailer.disabled'))
             ->will($this->returnValue(true));
 
-        $this->command->run(new ArrayInput(array()), new NullOutput());
+        $this->command->run(new ArrayInput([]), new NullOutput());
     }
 
     public function getTimeout()
     {
-        return array(
-            array(null),
-            array(50),
-        );
+        return [
+            [null],
+            [50],
+        ];
     }
 
     /**
@@ -158,7 +158,7 @@ class SendEmailCommandOverrideTest extends TestCase
         $this->container->expects($this->at(0))
             ->method('getParameter')
             ->with($this->equalTo('swiftmailer.mailers'))
-            ->will($this->returnValue(array('enabled' => 'enabled')));
+            ->will($this->returnValue(['enabled' => 'enabled']));
 
         $this->container->expects($this->any())
             ->method('has')
@@ -205,8 +205,8 @@ class SendEmailCommandOverrideTest extends TestCase
             ->will($this->returnValue($transport));
 
         $options = null !== $timeout
-            ? array('--recover-timeout' => $timeout)
-            : array();
+            ? ['--recover-timeout' => $timeout]
+            : [];
 
         $this->command->run(new ArrayInput($options), new NullOutput());
     }
