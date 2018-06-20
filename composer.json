@@ -15,13 +15,13 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.1.0",
-        "symfony/framework-bundle": "^3.4.0|^4.0.0",
-        "symfony/console": "^3.4.0|^4.0.0",
-        "symfony/swiftmailer-bundle": "^3.1.0",
+        "symfony/framework-bundle": "^4.1.0",
+        "symfony/console": "^4.1.0",
+        "symfony/swiftmailer-bundle": "^3.2.0",
         "fxp/swiftmailer-doctrine": "^1.0.0"
     },
     "require-dev": {
-        "doctrine/doctrine-bundle": "^1.8.0"
+        "doctrine/doctrine-bundle": "^1.9.0"
     },
     "autoload": {
         "psr-4": { "Fxp\\Bundle\\SwiftmailerDoctrineBundle\\": "" },
