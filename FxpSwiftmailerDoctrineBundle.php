@@ -34,7 +34,7 @@ class FxpSwiftmailerDoctrineBundle extends Bundle
             $container->addCompilerPass(
                 DoctrineOrmMappingsPass::createXmlMappingDriver(
                     [
-                        realpath(dirname($ref->getFileName()).'/Resources/config/doctrine/model') => 'Fxp\Component\SwiftmailerDoctrine\Model',
+                        realpath(\dirname($ref->getFileName()).'/Resources/config/doctrine/model') => 'Fxp\Component\SwiftmailerDoctrine\Model',
                     ]
                 )
             );
