@@ -19,10 +19,12 @@ use Symfony\Component\Config\Definition\Processor;
  * Configuration Tests.
  *
  * @author François Pluchino <francois.pluchino@gmail.com>
+ *
+ * @internal
  */
-class ConfigurationTest extends TestCase
+final class ConfigurationTest extends TestCase
 {
-    public function testEmptyConfiguration()
+    public function testEmptyConfiguration(): void
     {
         $process = new Processor();
         $configs = [];

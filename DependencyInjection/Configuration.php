@@ -28,13 +28,13 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder('fxp_swiftmailer_doctrine');
-        /* @var ArrayNodeDefinition $rootNode */
+        /** @var ArrayNodeDefinition $rootNode */
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->children()
-                ->scalarNode('spool_email_class')->defaultValue('Fxp\Component\SwiftmailerDoctrine\Model\SpoolEmailInterface')->end()
-                ->scalarNode('override_send_command')->defaultTrue()->end()
+            ->scalarNode('spool_email_class')->defaultValue('Fxp\Component\SwiftmailerDoctrine\Model\SpoolEmailInterface')->end()
+            ->scalarNode('override_send_command')->defaultTrue()->end()
             ->end()
         ;
 
