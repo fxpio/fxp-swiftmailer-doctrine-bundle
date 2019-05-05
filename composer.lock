@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "68fd2ac5d12b1e6efeacd88f6512f5bd",
+    "content-hash": "a49807701e67e943464c5c4a5dd97ee9",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -563,16 +563,16 @@
         },
         {
             "name": "fxp/swiftmailer-doctrine",
-            "version": "v1.0.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fxpio/fxp-swiftmailer-doctrine.git",
-                "reference": "8ab9481a2d1ba466d3acc2dd5d95eb6b5214d71a"
+                "reference": "707f259663ea2acce2e287720228c41e4068ce53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fxpio/fxp-swiftmailer-doctrine/zipball/8ab9481a2d1ba466d3acc2dd5d95eb6b5214d71a",
-                "reference": "8ab9481a2d1ba466d3acc2dd5d95eb6b5214d71a",
+                "url": "https://api.github.com/repos/fxpio/fxp-swiftmailer-doctrine/zipball/707f259663ea2acce2e287720228c41e4068ce53",
+                "reference": "707f259663ea2acce2e287720228c41e4068ce53",
                 "shasum": ""
             },
             "require": {
@@ -586,7 +586,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -614,7 +614,7 @@
                 "spool",
                 "swiftmailer"
             ],
-            "time": "2018-08-15T09:00:55+00:00"
+            "time": "2019-05-05T15:51:09+00:00"
         },
         {
             "name": "psr/cache",
