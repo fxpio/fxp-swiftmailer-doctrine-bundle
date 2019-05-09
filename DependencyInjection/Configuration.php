@@ -11,6 +11,7 @@
 
 namespace Fxp\Bundle\SwiftmailerDoctrineBundle\DependencyInjection;
 
+use Fxp\Component\SwiftmailerDoctrine\Model\SpoolEmailInterface;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -25,7 +26,7 @@ class Configuration implements ConfigurationInterface
     /**
      * {@inheritdoc}
      */
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('fxp_swiftmailer_doctrine');
         /** @var ArrayNodeDefinition $rootNode */
@@ -33,7 +34,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-            ->scalarNode('spool_email_class')->defaultValue('Fxp\Component\SwiftmailerDoctrine\Model\SpoolEmailInterface')->end()
+            ->scalarNode('spool_email_class')->defaultValue(SpoolEmailInterface::class)->end()
             ->scalarNode('override_send_command')->defaultTrue()->end()
             ->end()
         ;

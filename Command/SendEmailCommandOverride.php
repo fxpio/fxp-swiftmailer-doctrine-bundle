@@ -46,7 +46,7 @@ class SendEmailCommandOverride extends SendEmailCommand
      * @param InputInterface  $input  The input
      * @param OutputInterface $output The output
      */
-    private function processDoctrineMailer($name, InputInterface $input, OutputInterface $output): void
+    private function processDoctrineMailer(string $name, InputInterface $input, OutputInterface $output): void
     {
         if (!$this->getContainer()->has(sprintf('swiftmailer.mailer.%s', $name))) {
             throw new \InvalidArgumentException(sprintf('The mailer "%s" does not exist.', $name));
@@ -77,7 +77,7 @@ class SendEmailCommandOverride extends SendEmailCommand
      * @param OutputInterface                 $output    The output
      */
     private function flushQueue(
-        $name,
+        string $name,
         \Swift_Transport_SpoolTransport $transport,
         InputInterface $input,
         OutputInterface $output
