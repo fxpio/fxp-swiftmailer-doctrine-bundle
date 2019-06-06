@@ -12,6 +12,7 @@
 namespace Fxp\Bundle\SwiftmailerDoctrineBundle\Tests\Command;
 
 use Fxp\Bundle\SwiftmailerDoctrineBundle\Command\SendEmailCommandOverride;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Helper\HelperSet;
@@ -32,19 +33,19 @@ use Symfony\Component\HttpKernel\KernelInterface;
 final class SendEmailCommandOverrideTest extends TestCase
 {
     /**
-     * @var Application|\PHPUnit_Framework_MockObject_MockObject
+     * @var Application|MockObject
      */
     protected $application;
     /**
-     * @var Definition|\PHPUnit_Framework_MockObject_MockObject
+     * @var Definition|MockObject
      */
     protected $definition;
     /**
-     * @var KernelInterface|\PHPUnit_Framework_MockObject_MockObject
+     * @var KernelInterface|MockObject
      */
     protected $kernel;
     /**
-     * @var ContainerInterface|\PHPUnit_Framework_MockObject_MockObject
+     * @var ContainerInterface|MockObject
      */
     protected $container;
     /**
@@ -53,7 +54,7 @@ final class SendEmailCommandOverrideTest extends TestCase
     protected $command;
 
     /**
-     * @var HelperSet|\PHPUnit_Framework_MockObject_MockObject
+     * @var HelperSet|MockObject
      */
     protected $helperSet;
 
